@@ -34,7 +34,7 @@ def kubernetes_pod_test_dag():
     echo_task = KubernetesPodOperator(
         task_id="echo_hello",
         name="airflow-test-echo",
-        namespace="airflow",          # change to your target namespace
+        namespace="spatial-vision",
         image="busybox:1.36",
         cmds=["sh", "-c"],
         arguments=["echo 'Hello from Kubernetes Pod!' && date"],
@@ -56,7 +56,7 @@ def kubernetes_pod_test_dag():
     python_task = KubernetesPodOperator(
         task_id="run_python",
         name="airflow-test-python",
-        namespace="airflow",          # change to your target namespace
+        namespace="spatial-vision",
         image="python:3.11-slim",
         cmds=["python", "-c"],
         arguments=[
